@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volt Store | E-commerce Store Frontend</title>
+<meta name="description" content="Demo: product listing with category filter, search and a shopping cart saved in LocalStorage.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="loading">
+<div id="loader" aria-hidden="true"><div class="ld-inner"><span class="ld-name">Volt Store</span><span class="ld-num" id="ldNum">0</span><span class="ld-bar"><b id="ldBar"></b></span></div></div>
+<canvas id="gl" aria-hidden="true"></canvas><div class="veil" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div><div class="bar" aria-hidden="true"></div><div class="cur-dot" aria-hidden="true"></div><div class="cur-ring" aria-hidden="true"></div>
+<header class="nav">
+  <a class="logo" href="#home"><b></b>Volt Store</a>
+  <ul class="links"><li><a href="#home">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#perks">Why Volt</a></li></ul>
+  <button class="btn cartbtn" id="openCart" aria-label="Open cart">🛒 Cart <span class="cnt" id="cnt">0</span></button>
+  <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">New season drop</span>
+      <h1>Smart gear for a <span class="grad-text">brighter day</span>.</h1>
+      <p class="lead">Headphones, wearables and desk upgrades picked for quality. Free delivery over $50.</p>
+      <div class="cta"><a class="btn btn-p" href="#shop">Shop now</a><a class="btn" href="#perks">Why Volt</a></div>
+    </div>
+    <div class="orb" aria-hidden="true"><div class="core">🎧</div><span class="o1">⌚</span><span class="o2">📷</span><span class="o3">🔊</span><span class="o4">⌨️</span><div class="sale">-30%</div></div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="head" data-r><span class="eyebrow">The collection</span><h2>Find your next favourite</h2></div>
+    <div class="tools" data-r>
+      <div class="search"><span>🔍</span><input id="q" type="search" placeholder="Search products..." aria-label="Search products"></div>
+      <div class="cats" id="cats"></div>
+      <select id="sort" aria-label="Sort"><option value="feat">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="rate">Top rated</option></select>
+    </div>
+    <p class="res" id="res"></p>
+    <div class="shop" id="grid"></div>
+    <p class="none" id="none" hidden>No products match your search. Try another keyword.</p>
+  </div>
+</section>
+
+<section id="perks">
+  <div class="wrap g3">
+    <div class="card" data-r><div class="ico">🚚</div><h3>Fast delivery</h3><p>Free shipping on orders over $50, delivered within three days.</p></div>
+    <div class="card" data-r style="--d:.1s"><div class="ico">🛡️</div><h3>2-year warranty</h3><p>Every product is covered, with easy replacement.</p></div>
+    <div class="card" data-r style="--d:.2s"><div class="ico">↩️</div><h3>30-day returns</h3><p>Not happy? Send it back, no questions asked.</p></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>© <span data-year></span> Volt Store. Demo project, no real orders.</span><span>Built with HTML, CSS and JavaScript</span></div></footer>
+
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="dh"><h3>Your cart</h3><button id="closeCart" aria-label="Close cart">✕</button></div>
+  <div class="items" id="items"></div>
+  <div class="df"><div class="ship" id="ship"></div><div class="sum"><span>Subtotal</span><b id="sub">$0.00</b></div><button class="btn btn-p" id="checkout" style="width:100%">Checkout</button><button class="lnk" id="clear">Clear cart</button></div>
+</aside>
+<script src="script.js"></script>
+</body>
+</html>
